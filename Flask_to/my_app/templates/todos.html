@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{% block content%}
+<section class="container">
+   <a href={{ url_for('tasks.add_tasks') }}>
+   <button class="add_button ">Add New Task</button>
+   </a>
+   <div class="row">
+      <div class="col" >
+         {% for todo in todos %}
+         <ul id =round>
+            <li>{{todo.task_name}}</li>
+            <br>
+            
+            <br>
+            <li>Status: {{todo.status}}</li>
+            <br>
+            
+            <br>
+            
+            <a href={{ url_for('tasks.delete', id=todo.id) }}>
+               <button class="add_button btn btn-danger">Delete</button>
+               </a>
+            
+            <br>
+            <br>
+            
+            <a href={{ url_for('tasks.edit_task', id=todo.id) }}>
+               <button class="add_button">update</button>
+               </a>
+            
+            <br>
+         </ul>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+{% endblock %}
